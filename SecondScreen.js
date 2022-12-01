@@ -10,14 +10,23 @@ import {
   Button,
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
-import {PickerIOS} from '@react-native-picker/picker';
+import {ThemedButton} from 'react-native-really-awesome-button';
+import moment from 'moment';
 
 function SecondScreen({route, navigation}) {
   const [drink, setdrink] = React.useState('vodka');
-  const [capacity, setcapacity] = React.useState(7);
+  const [capacity, setcapacity] = React.useState(1);
   // console.log(drink);
   const make = drinking[drink];
   const selectionString = make.name + ' ' + make.models[capacity];
+
+  function getCurrentDate() {
+    var date = moment().utcOffset('+05:30').format('YYYY-MM-DD hh:mm:ss a');
+    console.log(date);
+    console.log(drink);
+    console.log(capacity);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -65,16 +74,31 @@ function SecondScreen({route, navigation}) {
               />
             ))}
           </Picker>
-          <Text>You selected: {selectionString}</Text>
-          <Button
+          <ThemedButton
+            name="bruce"
+            type="secondary"
+            // backgroundColor="#a82f7a"
+            // textColor="#FFFFFF"
+            activityColor="#FFFFFF"
+            style={styles.button}
+            onPress={() => getCurrentDate()}>
+            ADD
+          </ThemedButton>
+
+          <ThemedButton
+            name="bruce"
+            type="primary"
+            // backgroundColor="#a82f7a"
+            // textColor="#FFFFFF"
+            activityColor="#FFFFFF"
+            style={styles.button}
             onPress={() =>
               navigation.navigate('ThirdScreen', {
-                tonacja: make.models[capacity],
+                capacity: make.models[capacity],
               })
-            }
-            title="START"
-            color="#a82f7a"
-          />
+            }>
+            END PARTY
+          </ThemedButton>
         </View>
       </ScrollView>
     </SafeAreaView>
