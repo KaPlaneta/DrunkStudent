@@ -14,7 +14,6 @@ import {
   ScreenComponent,
   StatusBar,
 } from 'react-native';
-// import SpinnerButton from 'react-native-spinner-button';
 import {ThemedButton} from 'react-native-really-awesome-button';
 
 function FirstScreen({navigation}) {
@@ -31,8 +30,6 @@ function FirstScreen({navigation}) {
           <ThemedButton
             name="bruce"
             type="primary"
-            // backgroundColor="#a82f7a"
-            // textColor="#FFFFFF"
             activityColor="#FFFFFF"
             style={styles.button}
             onPress={() => navigation.navigate('SecondScreen')}>
@@ -67,7 +64,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 50,
 
-    // backgroundColor: '#a82f7a',
     marginBottom: 16,
   },
   buttonBorderStyle: {

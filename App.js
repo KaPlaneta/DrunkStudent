@@ -35,31 +35,13 @@ const App = () => {
         />
         <Stack.Screen
           name="ThirdScreen"
-          options={{title: 'costam'}}
+          options={{title: 'Chart'}}
           component={ThirdScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-function returnTheSame(name) {
-  return name;
-}
-
-function concatenateArray(myArray) {
-  //łączy stringi, zmienna i w petli dodawac nasteony element do tej zmiennej
-  let name = '';
-  //   for (let i=0; i < myArray.length; i++)
-  // {
-  //    // console.log("The member of myArray in index " + i + " is " + myArray[i]);
-  //   name += myArray[i];
-  // }
-  for (const element of myArray) {
-    name += element;
-  }
-  return name;
-}
 
 const styles = StyleSheet.create({
   container: {
