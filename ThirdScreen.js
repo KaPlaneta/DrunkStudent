@@ -1,50 +1,28 @@
 import React, {useCallback, useState} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-  Button,
-  Image,
-  ImageBackground,
-  Dimensions,
-  AppRegistry,
-  processColor,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, View, processColor} from 'react-native';
 
-import {LineChart} from 'react-native-charts-wrapper';
+import {BarChart} from 'react-native-charts-wrapper';
 import moment from 'moment';
 
-// const windowWidth = Dimensions.get("window").width;
-// const windowHeight = Dimensions.get("window").height;
-
-// const originalWidth = 210;
-// const originalHeight = 297;
-// const aspectRatio = originalWidth / originalHeight;
-// const windowWidth = Dimensions.get("window").width;
-// const windowHeight = Dimensions.get("window").height;
-var date = moment().utcOffset('+05:30').format('YYYY-MM-DD hh:mm:ss a');
-console.log(date);
-
 function ThirdScreen({route, navigation, props}) {
+  const {date, pureAlcohol} = route.params;
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={{flex: 1}}>
         <View style={styles.container}>
-          <LineChart
+          <BarChart
             style={styles.chart}
             xAxis={{
               granularityEnabled: true,
               granularity: 1,
-              valueFormatter: ['Jan', 'Feb', 'Mar'],
+              valueFormatter: date,
             }}
             data={{
               dataSets: [
                 {
-                  values: [{y: 100}, {y: 105}, {y: 102}],
-                  label: 'Bar dataSet',
+                  values: pureAlcohol,
+                  label: 'Pure alcohol consumption over time',
                   config: {
                     color: processColor('teal'),
                     barShadowColor: processColor('lightgrey'),
