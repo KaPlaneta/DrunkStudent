@@ -1,5 +1,5 @@
 # DrunkStudent
-StudentApp is a project about adding currently drunk beverage and displaying a graph of pure alcohol consumption over time.
+DrunkStudent is a project about adding currently drunk beverage and displaying a graph of pure alcohol consumption over time.
 
 ## Screenshots
 
